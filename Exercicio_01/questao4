@@ -1,0 +1,3 @@
+4- a. Sim, pois essa abordagem permite o controle sobre informações relevantes sobre o titular (como nome e idade) para a conta.
+b. Sim, pois podem existir mais de um tipo de conta bancária associado a um único titular. O elemento da programação estrutura que melhor se adequa seria 
+a estrutura de registros.

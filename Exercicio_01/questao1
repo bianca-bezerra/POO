@@ -1,0 +1,4 @@
+1- Uma classe é um modelo a partir do qual objetos são criados, assim sendo um padrão para descrever as propriedades(atributos) e o
+comportamento(métodos) que os objetos de uma determinada classe terão. Enquanto um objeto é uma instância de uma classe e uma
+entidade que representa um elemento do mundo real, ou seja,a classe é a referência e o objeto é a classe sendo executada de forma 
+concreta. Por exemplo, pode existir uma classe "Mamíferos" e o objeto "Homem" como instância dessa classe.
