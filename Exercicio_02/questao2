@@ -1,4 +1,3 @@
-O principal problema na tipagem dinâmica é o erro em tempo de execução. Dado que a verificação de
-tipos não é feita em tempo de compilação, erros ocorrem enquanto o programa é executado,
-ocasionando bugs e crashes. Assim, a depuração do código é dificultada e a confiabilidade do sistema
-é prejudicada.
+O principal problema na tipagem dinâmica é o erro em tempo de execução. Dado que a verificação de tipos não é feita em tempo de compilação,
+erros ocorrem enquanto o programa é executado, ocasionando bugs e crashes. Assim, a depuração do código é dificultada e a confiabilidade do
+sistema é prejudicada.
