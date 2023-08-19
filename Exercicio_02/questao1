@@ -1,9 +1,0 @@
-Na tipagem estática, o tipo de cada dado utilizado é explicitamente informado na sua declaração,
-sendo assim, uma vez definido, as variáveis estão restritas á aquele tipo e não podem ser
-alteradas posteriomente no código. A checagem do tipo é feita em tempo de compilação ou em tempo de execução,
-dependendo se a linguagem é compilada ou interpretada.
-
-Na tipagem dinâmica, os tipos dos dados são checados em tempo de execução. Dessa forma, o tipo de
-dado é definido de acordo com o valor do dado declarado e não a partir da variável. Isso significa
-que a mesma variável pode ter seu valor alterado ao longo do programa, uma vez que as operações
-realizadas em um dado momento são baseadas no tipo de valor atualmente armazenado na variável.
