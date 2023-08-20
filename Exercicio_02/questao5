@@ -1,0 +1,2 @@
+Utilizar o tipo "any" pode ser justificável, por exemplo, na situação onde há uso de bibliotecas
+nas quais não há definição dos tipos dos dados.

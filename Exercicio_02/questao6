@@ -1,0 +1,4 @@
+Sim, pois inteiros e pontos flutuantes são tipos de dados distintos, apesar de ambos serem números. 
+Logo, isso demonstra um aspecto de tipagem fraca da linguagem, já que existe essa flexibilidade
+em armazenar e realizar operações com tipos de dados diferentes dentro de uma variável de 
+mesmo tipo.
