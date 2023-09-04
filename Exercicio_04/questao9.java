@@ -29,6 +29,7 @@ class Conta {
 
     public boolean transferir(Conta contaDestino, double valor){
         if (this.sacar(valor)) {
+            this.sacar(valor);
             contaDestino.depositar(valor);
             return true;
         } else {
@@ -40,7 +41,7 @@ class Conta {
 
 public class questao9 {
     public static void main(String[] args){
-        Conta c1 = new Conta("1", 10);
+        Conta c1 = new Conta("1", 100);
         Conta c2 = new Conta("2", 200);
         
         // Operação de saque

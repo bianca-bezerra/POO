@@ -1,4 +1,4 @@
-5- a) O resultado dos dois prints será 140, pois "c1" e "c2" apontam ambos para o objeto "c2", logo,
+5- a) O resultado dos dois prints será 90, pois "c1" e "c2" apontam ambos para o objeto "c2", logo,
 todas as operações feitas irão alterar o valor armazenado no c2.
 
 b) Foi perdida.
