@@ -17,11 +17,11 @@ public class Calculadora {
         return operando2;
     }
 
-    public double soma(double operando1, double operando2){
+    public double soma(){
         return operando1 + operando2;
     }
 
-    public double multiplicacao(double operando1, double operando2){
+    public double multiplicacao(){
         return operando1 * operando2;
     }
 }

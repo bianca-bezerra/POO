@@ -10,24 +10,24 @@ class Conta {
         this.nome = nome;
     }
 
-    boolean sacar(double valor){
+    public boolean sacar(double valor){
         if (valor > 0 && this.saldo >= valor) {
             this.saldo -= valor;
             return true;
         } return false;
     }
 
-    void depositar(double valor){
+    public void depositar(double valor){
         if (valor > 0) {
             this.saldo += valor;
         }
     }
 
-    double consultarSaldo(){
+    public double consultarSaldo(){
         return this.saldo;
     }
 
-    boolean transferir(Conta contaDestino, double valor){
+    public boolean transferir(Conta contaDestino, double valor){
         if (this.sacar(valor)) {
             contaDestino.depositar(valor);
             return true;
@@ -35,19 +35,19 @@ class Conta {
             return false;
     }
 
-    String twoString(){
+    public String twoString(){
         return "> Número da conta: " + numero + "\n> Dono da conta: " + nome;
     }
 
-    String getNome(){
+    public String getNome(){
         return nome;
     }
 
-    String getNumero(){
+    public String getNumero(){
         return numero;
     }
 
-    double getSaldo(){
+    public double getSaldo(){
         return saldo;
     }
     public static void main(String[] args){
