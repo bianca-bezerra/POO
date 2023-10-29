@@ -1,3 +1,4 @@
+package app;
 class Conta {
     private String numero;
     private String nome;
@@ -14,7 +15,8 @@ class Conta {
         if (valor > 0 && this.saldo >= valor) {
             this.saldo -= valor;
             return true;
-        } return false;
+        }
+        return false;
     }
 
     public void depositar(double valor){
@@ -32,7 +34,7 @@ class Conta {
             contaDestino.depositar(valor);
             return true;
         }
-            return false;
+        return false;
     }
 
     public String twoString(){

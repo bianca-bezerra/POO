@@ -1,8 +1,13 @@
+package app;
 import java.util.ArrayList;
 
 class Banco {
 
     private ArrayList<Conta> contas = new ArrayList<>();
+
+    public ArrayList<Conta> getContas(){
+        return contas;
+    }
 
     public void inserir(Conta conta){
         boolean contaExiste = false;
@@ -89,6 +94,17 @@ class Banco {
 
     public double obterMedia(ArrayList<Conta> contas){
         return obterTotal(contas)/consultarTamanho(contas);
+    }
+
+    public void renderJuros(String numero){
+        Conta conta = this.consultar(numero);
+        if(conta instanceof Poupanca){
+            ((Poupanca)conta).renderJuros();
+        }
+    }
+
+    public void carregarArquivo(){
+
     }
 
 

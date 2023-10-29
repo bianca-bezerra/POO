@@ -1,3 +1,9 @@
+package app;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 class App {
@@ -91,6 +97,33 @@ class App {
         System.out.println("\n\nPressione <Enter> para continuar...");
         input.nextLine();
     }
+
+    void escreverContasEmArquivo(String nomeArquivo) {
+        try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(nomeArquivo))) {
+            List<Conta> contas = banco.getContas();
+            for (Conta conta : contas) {
+                buffWrite.write(conta.getNumero() + "; " + conta.getSaldo() + "; " + conta.getNome() + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    void lerContasDoArquivo(String nomeArquivo) {
+        try (BufferedReader buffRead = new BufferedReader(new FileReader(nomeArquivo))) {
+            String linha;
+            while ((linha = buffRead.readLine()) != null) {
+                String[] partes = linha.split("; ");
+                String numero = partes[0];
+                double saldo = Double.parseDouble(partes[1]);
+                String nome = partes[2];
+                Conta conta = new Conta(numero, saldo, nome);
+                banco.inserir(conta);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     
     void executar(){
         do{
@@ -141,6 +174,7 @@ class App {
                     }
                 break;
             }
+            escreverContasEmArquivo("app/contas.txt");
             pausar();
 
         }while(!opcao.equals("0"));
@@ -149,6 +183,7 @@ class App {
 
     public static void main(String[] args) {
         App app = new App();
+        app.lerContasDoArquivo("app/contas.txt");
         app.executar();
     }
 }
