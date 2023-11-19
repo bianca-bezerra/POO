@@ -1,0 +1,28 @@
+1- São exemplos de erros em tempo de execução em TypeScript: Utilização de uma variável indefinida, acessar um indice fora dos limites de uma array e 
+atribuir um valor de um tipo a uma variável de outro tipo quando os tipos são incompatíveis, de forma a gerar erro ao tentar operações.
+
+2- Uma exceção em programação é um evento anormal que interrompe o fluxo normal do programa, associada a condições de erro não verificadas durante a 
+compilação. Diferentemente de erros comuns, que podem ser imprevisíveis e difíceis de depurar, exceções são tratadas explicitamente por meio de blocos
+try-catch, proporcionando um caminho controlado para a continuação da execução e facilitando a depuração.
+
+3- No TypeScript, as exceções são tratadas usando blocos try, catch, e finally.
+
+4- O bloco try em TypeScript envolve o código suscetível a exceções, enquanto o bloco catch lida com exceções capturadas, permitindo tratamento controlado
+de erros. O bloco finally, opcional, contém código executado independentemente de ocorrer uma exceção ou não.
+
+5- Em TypeScript, você pode criar exceções personalizadas definindo classes que estendem a classe "Error".
+
+6- Em aplicações TypeScript, tipos comuns de exceções incluem TypeError, ReferenceError, RangeError, SyntaxError e URIError.
+
+7- O bloco finally no tratamento desempenha o papel de conter código que será executado independentemente de ocorrer uma exceção ou não.De forma geral ele
+é a garantia de que o código irá liberar recursos ocupados mesmo que ocorram exceções.
+
+8- O tratamento de exceções em TypeScript melhora a robustez ao evitar falhas críticas que interrompam abruptamente a execução do programa, o tratamento proporciona
+informação detalhada sobre erros que garantem uma manutenção facilitada, e contribui para a segurança ao evitar vazamentos de informações e permitir a 
+liberação adequada de recursos.
+
+9- Não, já que ambas suportam o mesmo mecanismo de tratamento de erro, no entanto, utilizando TypeScript, há o beneficio das verificações de tipo estático 
+durante a fase de compilação, o que pode evitar alguns erros antes da execução do código. 
+
+10- Usar um sistema de tipo estático e um linter para pegar erros básicos, realizar testes unitários para partes essenciais da aplicação, utilizar frameworks de testes e
+utilizar o bloco try-catch durante a fase de desevolvimento para obter informações detalhadas sobre possíveis erros.
