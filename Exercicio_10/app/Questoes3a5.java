@@ -1,6 +1,6 @@
 package app;
 
-public class QuestoesTeste {
+public class Questoes3a5 {
     public static void main(String[] args) throws Exception {
         Questao3.main(args);
         Questao4.main(args);
