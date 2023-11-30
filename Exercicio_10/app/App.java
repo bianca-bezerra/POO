@@ -127,18 +127,38 @@ class App {
         }
     }
 
-    void validarInput(String input) throws ValorInvalidoError, NumeroDeOpcaoInvalidoError{
+    void validarInput(String input) throws ValorVazioError, NumeroDeOpcaoInvalidoError{
         if(input.isEmpty()){
-            throw new ValorInvalidoError("A entrada está vazia.");
+            throw new ValorVazioError("A entrada está vazia.");
         }else if(!inputs_validos.contains(input)){
             throw new NumeroDeOpcaoInvalidoError("A opção escolhida é inválida");
+        }
+    }
+
+    private void handleException(Exception e) {
+        if (e instanceof ValorVazioError) {
+            System.out.println("Operação inválida. Valor do input está vazio.");
+        } else if (e instanceof NumeroDeOpcaoInvalidoError) {
+            System.out.println("Valor do input está fora dos limites (0-7)");
+        } else if (e instanceof EntradaInvalidaError) {
+            System.out.println("Entrada foi inválida.");
+        } else if (e instanceof ContaInexistenteError) {
+            System.out.println("A conta buscada não existe");
+        } else if (e instanceof SaldoInsuficienteError) {
+            System.out.println("Saldo insuficiente");
+        } else if (e instanceof ValorInvalidoError) {
+            System.out.println("Valor inválido. Digite valor positivo!");
+        } else if (e instanceof PoupancaInvalidaError) {
+            System.out.println("Conta não é do tipo Poupança");
+        } else if (e instanceof AplicacaoError) {
+            System.out.println("Erro na aplicação, contate seu administrador");
         }
     }
     
     void executar(){
     do{
         try{
-            //limparTela();
+            limparTela();
             System.out.print(menu());
             opcao = input.nextLine();
             validarInput(opcao);
@@ -178,33 +198,10 @@ class App {
                 break;
             }
             escreverContasEmArquivo("app/contas.txt");
-            // pausar();
+            //pausar();
             }catch(Exception e){
-                if(e instanceof ValorVazioError){
-                    System.out.println("Valor do input está vazio");
-                }
-                else if(e instanceof NumeroDeOpcaoInvalidoError){
-                    System.out.println("Valor do input está fora dos limites (0-7)");
-                }
-                else if(e instanceof EntradaInvalidaError){
-                    System.out.println("Entrada foi inválida.");
-                }
-                else if(e instanceof ContaInexistenteError){
-                    System.out.println("A conta buscada não existe");
-                }
-                else if(e instanceof SaldoInsuficienteError){
-                    System.out.println("Saldo insuficiente");
-                }
-                else if(e instanceof ValorInvalidoError){
-                    System.out.println("Valor inválido. Digite valor positivo!");
-                }
-                else if(e instanceof PoupancaInvalidaError){
-                    System.out.println("Conta não é do tipo Poupança");
-                }
-                else if(e instanceof AplicacaoError){
-                    System.out.println("Erro na aplicação, contate seu administrador");
-                }
-            
+                handleException(e);
+
             }finally{
                 System.out.println("\nOperação finalizada");
                 pausar();
