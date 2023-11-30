@@ -4,27 +4,31 @@ public class Conta {
     private String nome;
     private double saldo;
 
-
-    public Conta(String numero, double saldo, String nome){
-        if(saldo < 0){
-            throw new Error("Saldo inválido");
-        }
+    //Construtor
+    public Conta(String numero, double saldo, String nome) throws Exception {
+        validarValor(saldo);
+        
         this.numero = numero;
-        this.saldo = saldo;
+        this.depositar(saldo);
         this.nome = nome;
     }
 
-    public void sacar(double valor){
+    private void validarValor(double valor) throws ValorInvalidoError{
+        if(valor < 0){
+            throw new ValorInvalidoError("Valor negativo é inválido");
+        }
+    }
+
+    public void sacar(double valor) throws Exception{
+        validarValor(valor);
         if (this.saldo < valor) {
-            throw new Error("Saldo insuficiente");
+            throw new SaldoInsuficienteError("Saldo insuficiente");
         }
         this.saldo -= valor;
     }
 
-    public void depositar(double valor){
-        if (valor < 0) {
-            throw new Error("Valor inválido");
-        }
+    public void depositar(double valor) throws Exception{
+        validarValor(valor);
         this.saldo += valor;
     }
 
@@ -32,7 +36,7 @@ public class Conta {
         return this.saldo;
     }
 
-    public void transferir(Conta contaDestino, double valor){
+    public void transferir(Conta contaDestino, double valor) throws Exception{
         this.sacar(valor);
         contaDestino.depositar(valor);
     }
@@ -56,17 +60,5 @@ public class Conta {
     public void setSaldo(double valor){
         this.saldo = valor;
     }
-    public static void main(String[] args){
-        Conta c1 = new Conta("1", 100, "Bianca");
-        Conta c2 = new Conta("2", 200, "Ruan");
     
-
-        // Operação de transferência
-        System.out.println("Operação de transferência");
-        c1.transferir(c2, 200); // Erro
-        c2.transferir(c1, 100);
-        System.out.println(c1.consultarSaldo());
-        System.out.println(c2.consultarSaldo());
-
-}
 }

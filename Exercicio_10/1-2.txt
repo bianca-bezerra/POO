@@ -1,0 +1,44 @@
+1) Enumere os 3 tipos mais comuns de tratamento de erros e exemplifique com
+códigos seus ou pesquisados na internet.
+
+1. Desconsiderar a operação
+Exemplo:
+
+void depositar(double valor){
+    if (valor > 0) {
+        this.saldo += valor;
+    }
+}
+
+2. Exibir uma mensagem de erro
+Exemplo:
+
+void depositar(double valor){
+    if (valor > 0) {
+        this.saldo += valor;
+    }else{
+        System.out.println("Erro ao realizar a operação depósito. Valores negativos são inválidos.")
+    }
+}
+
+3. Retornar um código de erro:
+Exemplo:
+
+boolean sacar(double valor){
+        if (valor > 0 && this.saldo >= valor) {
+            this.saldo -= valor;
+            return true;
+        } return false;
+    }
+
+2) Explique por que cada um dos 3 métodos acima possui limitações de uso.
+
+1. Desconsiderar a Operação:
+Essa estratégia não é eficaz uma vez que ficamos na incerteza do sucesso da operação.
+
+2. Exibir uma Mensagem de Erro:
+A eficácia dessa estratégia depende da visibilidade da mensagem de erro para o usuário. Se a aplicação estiver sendo executada em segundo plano ou sem uma interface gráfica, as mensagens podem passar despercebidas.
+Além disso, mensagens detalhadas podem ser inseguras, revelando informações sensíveis. Ao mesmo tempo, mensagens genéricas podem não ser informativas o suficiente para diagnosticar problemas.
+
+3. Retornar um Código de Erro:
+A estratégia de códigos de erro exige que os desenvolvedores tenham conhecimento prévio sobre o significado de cada código, o que cria uma dependência de documentação.

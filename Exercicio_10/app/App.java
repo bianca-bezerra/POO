@@ -10,7 +10,8 @@ class App {
 
     Banco banco;
     String opcao;
-    Scanner input;;
+    Scanner input;
+    private static final Set<String> inputs_validos = new HashSet<>(Set.of("0", "1", "2", "3", "4", "5", "6", "7"));
 
     public App(){
         banco = new Banco();
@@ -29,7 +30,7 @@ class App {
     }
     
 
-    void inserir(){
+    void inserir() throws Exception{
         System.out.println("\n>> Cadastrar conta\n");
 
         System.out.print("Informe o número da conta: ");
@@ -42,7 +43,7 @@ class App {
         banco.inserir(conta);
     }
 
-    Conta consulta(){
+    Conta consulta() throws ContaInexistenteError{
         System.out.print("Informe o numero da conta: ");
         String numero = input.nextLine();
 
@@ -51,7 +52,7 @@ class App {
         return contaProcurada;
     }
 
-    void sacar(){
+    void sacar() throws Exception{
         Conta contaProcurada = consulta();
 
         System.out.print("Informe o valor que deseja sacar: ");
@@ -59,7 +60,7 @@ class App {
         contaProcurada.sacar(valor);
     }
 
-    void depositar(){
+    void depositar() throws Exception{
         Conta contaProcurada = consulta();
 
         System.out.print("Informe o valor que deseja depositar: ");
@@ -67,12 +68,12 @@ class App {
         contaProcurada.depositar(valor);
     }
 
-    void excluir(){
+    void excluir() throws ContaInexistenteError{
         Conta contaProcurada = consulta();
         banco.excluir(contaProcurada.getNumero());
     }
 
-    void transferir(){
+    void transferir() throws Exception{
         System.out.print("Informe numero da conta a receber: ");
         String contaDebito = input.nextLine();
 
@@ -90,6 +91,7 @@ class App {
         try {
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         } catch (Exception e) {
+            System.out.println("Limpar tela falhou");
         }
     }
 
@@ -109,7 +111,7 @@ class App {
         }
     }
 
-    void lerContasDoArquivo(String nomeArquivo) {
+    void lerContasDoArquivo(String nomeArquivo) throws Exception {
         try (BufferedReader buffRead = new BufferedReader(new FileReader(nomeArquivo))) {
             String linha;
             while ((linha = buffRead.readLine()) != null) {
@@ -124,12 +126,22 @@ class App {
             e.printStackTrace();
         }
     }
+
+    void validarInput(String input) throws ValorInvalidoError, NumeroDeOpcaoInvalidoError{
+        if(input.isEmpty()){
+            throw new ValorInvalidoError("A entrada está vazia.");
+        }else if(!inputs_validos.contains(input)){
+            throw new NumeroDeOpcaoInvalidoError("A opção escolhida é inválida");
+        }
+    }
     
     void executar(){
-        do{
+    do{
+        try{
             limparTela();
             System.out.print(menu());
             opcao = input.nextLine();
+            validarInput(opcao);
             
             switch(opcao){
 
@@ -139,14 +151,9 @@ class App {
 
                 case "2":
                     Conta conta = consulta();
-                    if(conta == null){
-                        System.out.println("Conta não existente");
-                        System.out.println();
-                    }else{
                     System.out.println("Conta existente\n");
                     System.out.println(conta.twoString());
 
-                    }
                     break;
                 
                 case "3":
@@ -167,21 +174,46 @@ class App {
                 
                 case "7":
                     Conta cont = consulta();
-                    if (cont == null) {
-                        System.out.println("Conta não existente");
-                    } else {
-                     System.out.println("Saldo: " + cont.getSaldo());
-                    }
+                    System.out.println("Saldo: " + cont.getSaldo());
                 break;
             }
             escreverContasEmArquivo("app/contas.txt");
-            pausar();
-
+            // pausar();
+            }catch(Exception e){
+                if(e instanceof ValorVazioError){
+                    System.out.println("Valor do input está vazio");
+                }
+                else if(e instanceof NumeroDeOpcaoInvalidoError){
+                    System.out.println("Valor do input está fora dos limites (0-7)");
+                }
+                else if(e instanceof EntradaInvalidaError){
+                    System.out.println("Entrada foi inválida.");
+                }
+                else if(e instanceof ContaInexistenteError){
+                    System.out.println("A conta buscada não existe");
+                }
+                else if(e instanceof SaldoInsuficienteError){
+                    System.out.println("Saldo insuficiente");
+                }
+                else if(e instanceof ValorInvalidoError){
+                    System.out.println("Valor inválido. Digite valor positivo!");
+                }
+                else if(e instanceof PoupancaInvalidaError){
+                    System.out.println("Conta não é do tipo Poupança");
+                }
+                else if(e instanceof AplicacaoError){
+                    System.out.println("Erro na aplicação, contate seu administrador");
+                }
+            
+            }finally{
+                System.out.println("\nOperação finalizada");
+                pausar();
+            }
         }while(!opcao.equals("0"));
-        System.out.println("Operação encerrada");
+        System.out.println("Aplicação encerrada");
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         App app = new App();
         app.lerContasDoArquivo("app/contas.txt");
         app.executar();

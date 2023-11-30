@@ -2,12 +2,12 @@ package app;
 public class Poupanca extends Conta {
     private double taxaJuros;
 
-    public Poupanca(double taxaJuros,String numero, double saldo, String nome){
+    public Poupanca(double taxaJuros,String numero, double saldo, String nome) throws Exception{
         super(numero, saldo, nome);
         this.taxaJuros = taxaJuros;
     }
 
-    public void renderJuros(){
+    public void renderJuros() throws Exception{
         this.depositar(this.getSaldo() * this.taxaJuros/100);
     }
 

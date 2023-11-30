@@ -16,9 +16,9 @@ class App {
         String opcoes = "\n========== Bem-vindo ao APP do Banco ==========\n";
         opcoes += "\n1 - Cadastrar      2 - Consultar    3 - Sacar\n";
         opcoes += "\n4 - Depositar      5 - Excluir      6 - Transferir\n";
-        opcoes += "\n7 - Totalizações\n";
+        opcoes += "\n7 - Totalizacoes\n";
         opcoes += "\n0 - Sair\n\n";
-        opcoes += "> Escolha uma das operações acima: ";
+        opcoes += "> Escolha uma das operacoes acima: ";
         return opcoes;
     }
     
