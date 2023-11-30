@@ -138,7 +138,7 @@ class App {
     void executar(){
     do{
         try{
-            limparTela();
+            //limparTela();
             System.out.print(menu());
             opcao = input.nextLine();
             validarInput(opcao);
