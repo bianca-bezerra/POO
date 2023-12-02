@@ -1,0 +1,10 @@
+5. Não podemos aplicar o operador new em FiguraGeometrica, mas porque então
+podemos realizar o seguinte código de instanciação:
+
+abstract class FiguraGeometrica {
+//...
+}
+let figuras: FiguraGeometrica[] = new Array();
+
+No exemplo, está sendo criando um array de objetos do tipo FiguraGeometrica, mas não está usando o operador new diretamente na classe abstrata FiguraGeometrica.
+Isso é permitido porque a classe abstrata em si não pode ser instanciada diretamente, mas você pode criar um array que armazena instâncias de suas subclasses.
