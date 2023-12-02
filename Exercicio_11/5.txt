@@ -6,5 +6,5 @@ abstract class FiguraGeometrica {
 }
 let figuras: FiguraGeometrica[] = new Array();
 
-No exemplo, está sendo criado um array de objetos do tipo FiguraGeometrica, mas não está usando o operador new diretamente na classe abstrata FiguraGeometrica.
+No exemplo, está sendo criado um array de objetos do tipo FiguraGeometrica, mas não está sendo utlizado o operador "new" na classe abstrata FiguraGeometrica.
 Isso é permitido porque a classe abstrata em si não pode ser instanciada diretamente, mas você pode criar um array que armazena instâncias de suas subclasses.
