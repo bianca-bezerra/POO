@@ -7,10 +7,12 @@ public class Quadrado extends FiguraGeometrica {
         this.lado = lado;
     }
 
+    @Override
     public double calculaArea(){
         return lado*lado;
     }
 
+    @Override
     public double calculaPerimetro(){
         return 4*lado;
     }

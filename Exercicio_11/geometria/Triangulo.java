@@ -8,9 +8,12 @@ public class Triangulo extends FiguraGeometrica{
         this.lado = lado;
         this.altura = altura;
     }
+    @Override
     public double calculaArea(){
         return (lado*altura)/2;
     }
+    
+    @Override
     public double calculaPerimetro(){
         return lado*3;
     }
