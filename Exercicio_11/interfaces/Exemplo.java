@@ -12,12 +12,12 @@ public class Exemplo {
             Circulo circulo = new Circulo(5);
             Trapezio trapezio = new Trapezio(5,10,15,10);
     
-            System.err.println("Comparando quadrado com triangulo: "+quadrado.comparar(triangulo));
-            System.err.println("Comparando quadrado com circulo: "+quadrado.comparar(circulo));
-            System.err.println("Comparando quadrado com trapezio: "+quadrado.comparar(trapezio));
-            System.err.println("Comparando triangulo com circulo: "+triangulo.comparar(circulo));
-            System.err.println("Comparando triangulo com trapezio: "+triangulo.comparar(trapezio));
-            System.err.println("Comparando circulo com trapezio: "+circulo.comparar(trapezio));
+            System.out.println("Comparando quadrado com triangulo: "+quadrado.comparar(triangulo));
+            System.out.println("Comparando quadrado com circulo: "+quadrado.comparar(circulo));
+            System.out.println("Comparando quadrado com trapezio: "+quadrado.comparar(trapezio));
+            System.out.println("Comparando triangulo com circulo: "+triangulo.comparar(circulo));
+            System.out.println("Comparando triangulo com trapezio: "+triangulo.comparar(trapezio));
+            System.out.println("Comparando circulo com trapezio: "+circulo.comparar(trapezio));
     }
 }
 
