@@ -1,6 +1,6 @@
 package interfaces;
 
-public class Circulo implements FiguraGeometrica, IComparavel{
+public class Circulo implements IFiguraGeometrica, IComparavel{
     private double raio;
     private double pi = 3.14;
 
@@ -19,13 +19,16 @@ public class Circulo implements FiguraGeometrica, IComparavel{
     }
 
     @Override
-    public int comparar(FiguraGeometrica figura) {
-        if(figura.calculaArea() > this.calculaArea()){
+    public int comparar(IFiguraGeometrica figura) {
+
+        if(this.calculaArea() > figura.calculaArea()){
             return 1;
-        }else if(figura.calculaArea() < this.calculaArea()){
+
+        }else if(this.calculaArea() < figura.calculaArea()){
             return -1;
+
         }else{
             return 0;
         }
-    }  
+    }   
 }

@@ -7,5 +7,5 @@ retornando -1, 0 e 1 caso a área da forma seja menor, igual ou maior que a
 passada via parâmetro. */
 
 public interface IComparavel {
-    public int comparar(FiguraGeometrica figura);
+    public int comparar(IFiguraGeometrica figura);
 }

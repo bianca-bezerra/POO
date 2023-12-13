@@ -1,6 +1,6 @@
 package interfaces;
 
-public class Quadrado implements FiguraGeometrica, IComparavel {
+public class Quadrado implements IFiguraGeometrica, IComparavel {
     private double lado;
     
     public Quadrado(double lado){
@@ -18,13 +18,16 @@ public class Quadrado implements FiguraGeometrica, IComparavel {
     }
 
     @Override
-    public int comparar(FiguraGeometrica figura) {
-        if(figura.calculaArea() > this.calculaArea()){
+    public int comparar(IFiguraGeometrica figura) {
+
+        if(this.calculaArea() > figura.calculaArea()){
             return 1;
-        }else if(figura.calculaArea() < this.calculaArea()){
+
+        }else if(this.calculaArea() < figura.calculaArea()){
             return -1;
+
         }else{
             return 0;
         }
-    }   
+    }    
 }

@@ -1,6 +1,6 @@
 package interfaces;
 
-public class Trapezio implements FiguraGeometrica, IComparavel{
+public class Trapezio implements IFiguraGeometrica, IComparavel{
     private double base_menor;
     private double base_maior;
     private double altura;
@@ -24,15 +24,18 @@ public class Trapezio implements FiguraGeometrica, IComparavel{
     }
 
     @Override
-    public int comparar(FiguraGeometrica figura) {
-        if(figura.calculaArea() > this.calculaArea()){
+    public int comparar(IFiguraGeometrica figura) {
+
+        if(this.calculaArea() > figura.calculaArea()){
             return 1;
-        }else if(figura.calculaArea() < this.calculaArea()){
+
+        }else if(this.calculaArea() < figura.calculaArea()){
             return -1;
+
         }else{
             return 0;
         }
-    }   
+    }     
 }
 
 

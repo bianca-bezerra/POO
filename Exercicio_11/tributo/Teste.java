@@ -13,14 +13,18 @@ public class Teste {
         
         ContaCorrente contac1 = new ContaCorrente("João", 1000);
         ContaCorrente contac2 = new ContaCorrente("Maria", 2000);
+        ContaCorrente contac3 = new ContaCorrente("Pedro", 3500);
         
         SeguroDeVida contas1 = new SeguroDeVida();
         SeguroDeVida contas2 = new SeguroDeVida();
+        SeguroDeVida contas3 = new SeguroDeVida();
 
         auditoria.adicionar(contac1);
         auditoria.adicionar(contac2);
         auditoria.adicionar(contas1);
         auditoria.adicionar(contas2);
+        auditoria.adicionar(contac3);
+        auditoria.adicionar(contas3);
 
         System.out.println(auditoria.calculaTributos());
     }
